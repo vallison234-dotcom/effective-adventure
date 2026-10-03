@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Effective Adventure Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">EA</div>
+          <div>
+            <div class="brand-title">Effective Adventure</div>
+            <div class="brand-subtitle">Studio</div>
+          </div>
+        </div>
+
+        <div class="sidebar-actions">
+          <button class="action primary" id="new-file-btn">+ New File</button>
+          <button class="action" id="new-folder-btn">+ New Folder</button>
+          <button class="action" id="upload-btn">Upload</button>
+          <input type="file" id="file-input" hidden multiple />
+        </div>
+
+        <div class="pane-title">Files</div>
+        <div id="file-tree" class="file-tree"></div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <div class="eyebrow">Project</div>
+            <h1>effective-adventure</h1>
+          </div>
+          <div class="topbar-actions">
+            <button class="action" id="save-btn">Save</button>
+            <button class="action" id="delete-btn">Delete</button>
+            <button class="action primary" id="export-btn">Export</button>
+          </div>
+        </header>
+
+        <section class="workspace-grid">
+          <div class="panel editor-panel">
+            <div class="panel-header">
+              <div class="pane-title" id="active-file-label">README.md</div>
+              <select id="language-select">
+                <option value="markdown">Markdown</option>
+                <option value="javascript">JavaScript</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="json">JSON</option>
+                <option value="plaintext">Plain text</option>
+              </select>
+            </div>
+            <textarea id="editor" spellcheck="false"></textarea>
+          </div>
+
+          <div class="panel right-panel">
+            <div class="tabs">
+              <button class="tab active" data-target="logo-tab">Logo</button>
+              <button class="tab" data-target="publish-tab">Publish</button>
+            </div>
+
+            <div id="logo-tab" class="tab-panel visible">
+              <div class="logo-editor">
+                <canvas id="logo-canvas" width="360" height="180"></canvas>
+                <div class="controls">
+                  <label>
+                    Logo text
+                    <input id="logo-text" type="text" value="EA" maxlength="12" />
+                  </label>
+                  <label>
+                    Color
+                    <input id="logo-color" type="color" value="#7c3aed" />
+                  </label>
+                  <label>
+                    Accent
+                    <input id="logo-accent" type="color" value="#22c55e" />
+                  </label>
+                  <label>
+                    Size
+                    <input id="logo-size" type="range" min="24" max="120" value="64" />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div id="publish-tab" class="tab-panel">
+              <div class="publish-stack">
+                <div class="package-card">
+                  <div class="package-name">IPA</div>
+                  <button class="package-btn" data-ext="ipa">Export IPA</button>
+                </div>
+                <div class="package-card">
+                  <div class="package-name">APK</div>
+                  <button class="package-btn" data-ext="apk">Export APK</button>
+                </div>
+                <div class="package-card">
+                  <div class="package-name">EXE</div>
+                  <button class="package-btn" data-ext="exe">Export EXE</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
